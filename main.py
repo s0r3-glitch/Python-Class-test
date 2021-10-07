@@ -20,8 +20,6 @@ def main():
     choice = int(input('1. Attack\n2. Defend\n3. Magic\n4. Heal\n'))
     if choice == 1:
       hero.attack_other(monster1)
-      if monster1_defenfing is True:
-        monster1.remove_defend()
     elif choice == 2:
       hero.add_defend()
       hero_defending = True
@@ -32,6 +30,8 @@ def main():
     else:
       print(f'{hero.name} wasted a turn\n')
 
+    if monster1_defenfing is True:
+      monster1.remove_defend()
     if monster1.hp <= 0:
       fightloop = False
       print(f'{monster1.name} has died congrats...\n')
@@ -43,8 +43,6 @@ def main():
     monster_choice = random.randint(1,4)
     if monster_choice == 1:
       monster1.attack_other(hero)
-      if hero_defending is True:
-        hero.remove_defend()
     elif monster_choice == 2:
       monster1.add_defend()
       monster1_defenfing = True
@@ -53,6 +51,8 @@ def main():
     elif monster_choice == 4:
       monster1.heal
 
+    if hero_defending is True:
+      hero.remove_defend()
     if hero.hp <= 0:
       fightloop = False
       print(f'{monster1.name} had killed {hero.name}\n')
